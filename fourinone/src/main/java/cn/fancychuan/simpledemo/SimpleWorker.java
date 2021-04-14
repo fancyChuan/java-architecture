@@ -14,9 +14,11 @@ public class SimpleWorker extends MigrantWorker {
         // 获得所需要的资源
         String word = wareHouse.getString("资源key");
         System.out.println("工人-拿到原材料：" + word + " 原材料来自Contractor");
-        System.out.println("个人-原材料状态：" + wareHouse.getStatusName());
+        System.out.println("工人-原材料状态：" + wareHouse.getStatusName());
         // 对资源加工后返回
-        return new WareHouse("资源key", "材料【" + word + "】的长度为： " + word.length());
+        WareHouse newWord = new WareHouse("资源key_after", "材料【" + word + "】的长度为： " + word.length());
+        System.out.println("工人-加工完成，资源id为：资源key_after");
+        return newWord;
     }
 
     public static void main(String[] args) {
